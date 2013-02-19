@@ -1,5 +1,7 @@
 package net.katerberg.euler.question;
 
+import java.util.List;
+
 import net.katerberg.euler.helper.ArrayHelper;
 import net.katerberg.euler.helper.MultipleHelper;
 
@@ -10,13 +12,19 @@ import net.katerberg.euler.helper.MultipleHelper;
 //Find the sum of all the multiples of 3 or 5 below 1000.
 public class Euler1 {
 
+	private ArrayHelper arrayHelper;
+	private MultipleHelper multipleHelper;
+
 	public Euler1(ArrayHelper arrayHelper, MultipleHelper multipleHelper) {
-		// TODO Auto-generated constructor stub
+		this.arrayHelper = arrayHelper;
+		this.multipleHelper = multipleHelper;
 	}
 
 	public Integer execute(int maxValueToCheckBelow) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Integer> threes = multipleHelper.findMultiplesBelow(maxValueToCheckBelow, 3);
+		List<Integer> fives = multipleHelper.findMultiplesBelow(maxValueToCheckBelow, 5);
+		List<Integer> combined = arrayHelper.combineLists(threes, fives);
+		return arrayHelper.sumList(combined);
 	}
 	
 
