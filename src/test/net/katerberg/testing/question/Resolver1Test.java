@@ -17,7 +17,7 @@ import net.katerberg.euler.resolvers.Resolver1;
 import net.katerberg.testing.RandomTest;
 
 @RunWith(MockitoJUnitRunner.class)
-public class Euler1Test {
+public class Resolver1Test {
 
 	private Resolver1 testObject;
 	@Mock
