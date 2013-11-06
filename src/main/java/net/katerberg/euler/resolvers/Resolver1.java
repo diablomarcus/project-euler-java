@@ -1,4 +1,4 @@
-package net.katerberg.euler.question;
+package net.katerberg.euler.resolvers;
 
 import java.util.List;
 
@@ -10,12 +10,13 @@ import net.katerberg.euler.helper.MultipleHelper;
 //The sum of these multiples is 23.
 //
 //Find the sum of all the multiples of 3 or 5 below 1000.
-public class Euler1 {
+public class Resolver1 {
 
 	private ArrayHelper arrayHelper;
 	private MultipleHelper multipleHelper;
 
-	public Euler1(ArrayHelper arrayHelper, MultipleHelper multipleHelper) {
+	  
+	public Resolver1(ArrayHelper arrayHelper, MultipleHelper multipleHelper) {
 		this.arrayHelper = arrayHelper;
 		this.multipleHelper = multipleHelper;
 	}
@@ -27,5 +28,4 @@ public class Euler1 {
 		return arrayHelper.sumList(combined);
 	}
 	
-
 }

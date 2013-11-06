@@ -1,10 +1,14 @@
-package net.katerberg.euler.helper;
+package net.katerberg.testing.helper;
 
-import static net.katerberg.testing.RandomTest.createRandomIntegerList;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import net.katerberg.euler.helper.ArrayHelper;
+import net.katerberg.testing.RandomTest;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -49,6 +53,14 @@ public class ArrayHelperTest {
 		Integer sum = testObject.sumList(randomList);
 
 		assertEquals(expectedSum, sum);
+	}
+
+	private List<Integer> createRandomIntegerList(int numberOfEntries) {
+		List<Integer> result = new ArrayList<Integer>();
+		for (int i=0; i<numberOfEntries; i++) {
+			result.add(RandomTest.getRandomNumber());
+		}
+		return result;
 	}
 
 }

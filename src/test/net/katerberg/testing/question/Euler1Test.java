@@ -1,4 +1,4 @@
-package net.katerberg.euler.question;
+package net.katerberg.testing.question;
 
 import static org.junit.Assert.*;
 
@@ -13,12 +13,13 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import net.katerberg.euler.helper.ArrayHelper;
 import net.katerberg.euler.helper.MultipleHelper;
+import net.katerberg.euler.resolvers.Resolver1;
 import net.katerberg.testing.RandomTest;
 
 @RunWith(MockitoJUnitRunner.class)
 public class Euler1Test {
 
-	private Euler1 testObject;
+	private Resolver1 testObject;
 	@Mock
 	private List<Integer> mock3List;
 	@Mock
@@ -32,13 +33,13 @@ public class Euler1Test {
 
 	@Before
 	public void setUp() throws Exception {
-		testObject = new Euler1(mockArrayHelper, mockMultipleHelper);
+		testObject = new Resolver1(mockArrayHelper, mockMultipleHelper);
 	}
 
 	@Test
 	public void testExecute_passes_integration() {
 
-		testObject = new Euler1(new ArrayHelper(), new MultipleHelper()); // Make sure it's a real
+		testObject = new Resolver1(new ArrayHelper(), new MultipleHelper()); // Make sure it's a real
 													// one.
 
 		Integer finalAnswer = testObject.execute(10);
