@@ -1,4 +1,4 @@
-package net.katerberg.euler.helper;
+package net.katerberg.euler.numbers;
 
 public class NumberGenerator {
 

@@ -1,7 +1,7 @@
-package net.katerberg.testing.helper;
+package net.katerberg.testing.numbers;
 
 import junit.framework.Assert;
-import net.katerberg.euler.helper.NumberGenerator;
+import net.katerberg.euler.numbers.NumberGenerator;
 
 import org.junit.Before;
 import org.junit.Test;

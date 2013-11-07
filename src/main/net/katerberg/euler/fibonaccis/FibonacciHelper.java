@@ -1,16 +1,19 @@
 package net.katerberg.euler.fibonaccis;
 
-import net.katerberg.euler.fibonaccis.Fibonacci;
+import net.katerberg.euler.numbers.NumberChecker;
 
 public class FibonacciHelper {
 
-    Fibonacci fibonacci;
+    private Fibonacci fibonacci;
+    private NumberChecker numberChecker;
 
     public FibonacciHelper() {
         fibonacci = new Fibonacci();
+        numberChecker = new NumberChecker();
     }
 
-    public FibonacciHelper(Fibonacci fibonacci) {
+    public FibonacciHelper(Fibonacci fibonacci, NumberChecker numberChecker) {
+        this.numberChecker = numberChecker;
         this.fibonacci = fibonacci;
     }
 
@@ -18,15 +21,11 @@ public class FibonacciHelper {
         int result = 0;
         while (fibonacci.findNext() < numberToSumUntil) {
             int current = fibonacci.getCurrent();
-            if (isEven(current)) {
+            if (numberChecker.isEven(current)) {
                 result += current;
             }
         }
         return result;
-    }
-
-    private boolean isEven(int current) {
-        return current / 2 * 2 == current;
     }
 
 }

@@ -1,8 +1,9 @@
 package net.katerberg.testing.helper;
 
 import junit.framework.Assert;
-import net.katerberg.euler.helper.NumberGenerator;
 import net.katerberg.euler.helper.PalindromeHelper;
+import net.katerberg.euler.numbers.NumberChecker;
+import net.katerberg.euler.numbers.NumberGenerator;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,26 +18,18 @@ public class PalindromeHelperTest {
 
     @Mock
     NumberGenerator numberGenerator;
+    @Mock
+    NumberChecker numberChecker;
 
     @Before
     public void setUp() throws Exception {
-        testObject = new PalindromeHelper(numberGenerator);
+        testObject = new PalindromeHelper(numberGenerator, numberChecker);
     }
 
     @Test
-    public void testOneDigit() {
+    public void testIntegration() {
 
-        Mockito.when(numberGenerator.largestNumberWithXDigits(1)).thenReturn(9);
-
-        long result = testObject.largestPalindromeByProductOfXDigitNumbers(1);
-
-        Assert.assertEquals(9, result);
-    }
-
-    @Test
-    public void testTwoDigit() {
-
-        Mockito.when(numberGenerator.largestNumberWithXDigits(2)).thenReturn(99);
+        testObject = new PalindromeHelper(new NumberGenerator(), new NumberChecker());
 
         long result = testObject.largestPalindromeByProductOfXDigitNumbers(2);
 
@@ -44,13 +37,29 @@ public class PalindromeHelperTest {
     }
 
     @Test
-    public void testIsPalindrome_HandlesVarietyOfCases() {
+    public void testLargestPalindromeCallsCorrectThings() {
 
-        Assert.assertEquals(true, testObject.isPalindrome(9L));
-        Assert.assertEquals(true, testObject.isPalindrome(90709L));
-        Assert.assertEquals(false, testObject.isPalindrome(9008L));
-        Assert.assertEquals(true, testObject.isPalindrome(9229L));
-        Assert.assertEquals(false, testObject.isPalindrome(9012342109L));
+        Integer expected = 19 * 18;
+        int numberOfDigits = 7;
+        Mockito.when(numberGenerator.largestNumberWithXDigits(numberOfDigits)).thenReturn(20);
+        Mockito.when(numberChecker.isPalindrome(expected)).thenReturn(true);
 
+        long result = testObject.largestPalindromeByProductOfXDigitNumbers(numberOfDigits);
+
+        Assert.assertEquals((int) expected, result);
+    }
+
+    @Test
+    public void testLargestPalindrome_GetsLargest_WhenMultiplePalindromes() {
+
+        Integer expected = 19 * 18;
+        int numberOfDigits = 7;
+        Mockito.when(numberGenerator.largestNumberWithXDigits(numberOfDigits)).thenReturn(20);
+        Mockito.when(numberChecker.isPalindrome(20 * 2)).thenReturn(true);
+        Mockito.when(numberChecker.isPalindrome(expected)).thenReturn(true);
+
+        long result = testObject.largestPalindromeByProductOfXDigitNumbers(numberOfDigits);
+
+        Assert.assertEquals((int) expected, result);
     }
 }

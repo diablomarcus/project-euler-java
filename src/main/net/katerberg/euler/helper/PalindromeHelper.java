@@ -1,15 +1,21 @@
 package net.katerberg.euler.helper;
 
+import net.katerberg.euler.numbers.NumberChecker;
+import net.katerberg.euler.numbers.NumberGenerator;
+
 public class PalindromeHelper {
 
     private NumberGenerator numberGenerator;
+    private NumberChecker numberChecker;
 
     public PalindromeHelper() {
         numberGenerator = new NumberGenerator();
+        numberChecker = new NumberChecker();
     }
 
-    public PalindromeHelper(NumberGenerator numberGenerator) {
+    public PalindromeHelper(NumberGenerator numberGenerator, NumberChecker numberChecker) {
         this.numberGenerator = numberGenerator;
+        this.numberChecker = numberChecker;
     }
 
     public int largestPalindromeByProductOfXDigitNumbers(int numberOfDigits) {
@@ -18,7 +24,7 @@ public class PalindromeHelper {
         for (int i = largestMultiple; i > 0; i--) {
             for (int j = largestMultiple; j > 0; j--) {
                 int testVal = i * j;
-                if (isPalindrome(testVal)) {
+                if (numberChecker.isPalindrome(testVal)) {
                     if (testVal > largest) {
                         largest = testVal;
                     }
@@ -26,18 +32,6 @@ public class PalindromeHelper {
             }
         }
         return largest;
-    }
-
-    public boolean isPalindrome(long test) {
-        String testString = test + "";
-        int lengthOfString = testString.length();
-        for (int i = 0; i < lengthOfString / 2; i++) {
-            if (testString.charAt(i) != testString.charAt(lengthOfString - 1 - i)) {
-                return false;
-            }
-        }
-
-        return true;
     }
 
 }

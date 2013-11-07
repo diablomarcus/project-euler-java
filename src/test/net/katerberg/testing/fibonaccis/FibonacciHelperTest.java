@@ -3,6 +3,7 @@ package net.katerberg.testing.fibonaccis;
 import junit.framework.Assert;
 import net.katerberg.euler.fibonaccis.Fibonacci;
 import net.katerberg.euler.fibonaccis.FibonacciHelper;
+import net.katerberg.euler.numbers.NumberChecker;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +21,7 @@ public class FibonacciHelperTest {
 
     @Before
     public void setUp() throws Exception {
-        testObject = new FibonacciHelper(fibonacci);
+        testObject = new FibonacciHelper(fibonacci, new NumberChecker());
     }
 
     @Test
