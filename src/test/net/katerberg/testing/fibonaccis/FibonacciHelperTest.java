@@ -1,8 +1,8 @@
-package net.katerberg.testing.helper;
+package net.katerberg.testing.fibonaccis;
 
 import junit.framework.Assert;
-import net.katerberg.euler.helper.FibonacciHelper;
-import net.katerberg.euler.items.Fibonacci;
+import net.katerberg.euler.fibonaccis.Fibonacci;
+import net.katerberg.euler.fibonaccis.FibonacciHelper;
 
 import org.junit.Before;
 import org.junit.Test;

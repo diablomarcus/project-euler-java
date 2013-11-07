@@ -1,6 +1,6 @@
-package net.katerberg.euler.helper;
+package net.katerberg.euler.fibonaccis;
 
-import net.katerberg.euler.items.Fibonacci;
+import net.katerberg.euler.fibonaccis.Fibonacci;
 
 public class FibonacciHelper {
 

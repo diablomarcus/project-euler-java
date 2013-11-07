@@ -1,4 +1,4 @@
-package net.katerberg.euler.items;
+package net.katerberg.euler.fibonaccis;
 
 public class Fibonacci {
     int current;
