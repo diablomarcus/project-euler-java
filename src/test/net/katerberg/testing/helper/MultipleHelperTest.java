@@ -12,23 +12,29 @@ import org.junit.Test;
 
 public class MultipleHelperTest {
 
-	private MultipleHelper testObject;
+    private MultipleHelper testObject;
 
-	@Before
-	public void setUp() throws Exception {
-		testObject = new MultipleHelper();
-	}
+    @Before
+    public void setUp() throws Exception {
+        testObject = new MultipleHelper();
+    }
 
-	@Test
-	public void testFindMultiplesBelow() {
+    @Test
+    public void testFindMultiplesBelow() {
 
-		List<Integer> threes = testObject.findMultiplesBelow(10, 3);
+        List<Integer> threes = testObject.findMultiplesBelow(10, 3);
 
-		assertEquals(3, threes.size());
-		assertTrue(threes.contains(3));
-		assertTrue(threes.contains(6));
-		assertTrue(threes.contains(9));
+        assertEquals(3, threes.size());
+        assertTrue(threes.contains(3));
+        assertTrue(threes.contains(6));
+        assertTrue(threes.contains(9));
 
-	}
+    }
+
+    @Test
+    public void isEvenlyDivisibleBelow() {
+        assertTrue(!testObject.isEvenlyDivisibleBelow(2512, 10));
+        assertTrue(testObject.isEvenlyDivisibleBelow(2520, 10));
+    }
 
 }
