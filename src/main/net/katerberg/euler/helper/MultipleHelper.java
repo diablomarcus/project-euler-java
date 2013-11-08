@@ -17,7 +17,7 @@ public class MultipleHelper {
 
     public boolean isEvenlyDivisibleBelow(int numberToCheck, int maxDivisor) {
         for (int i = 2; i <= maxDivisor; i++) {
-            if (numberToCheck % maxDivisor != 0) {
+            if (numberToCheck % i != 0) {
                 return false;
             }
         }

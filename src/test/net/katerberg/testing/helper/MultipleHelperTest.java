@@ -34,6 +34,7 @@ public class MultipleHelperTest {
     @Test
     public void isEvenlyDivisibleBelow() {
         assertTrue(!testObject.isEvenlyDivisibleBelow(2512, 10));
+        assertTrue(!testObject.isEvenlyDivisibleBelow(2540, 20));
         assertTrue(testObject.isEvenlyDivisibleBelow(2520, 10));
     }
 
