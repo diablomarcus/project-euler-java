@@ -5,6 +5,16 @@ import java.util.List;
 
 public class PrimeHelper {
 
+    private Prime prime;
+
+    public PrimeHelper(Prime prime) {
+        this.prime = prime;
+    }
+
+    public PrimeHelper() {
+        prime = new Prime();
+    }
+
     public List<Long> findPrimeFactors(Long number) {
         List<Long> result = new ArrayList<Long>();
         if (number % 2L == 0) {
@@ -30,5 +40,13 @@ public class PrimeHelper {
             }
         }
         return 0;
+    }
+
+    public long findXthPrimeNumber(int input) {
+        long currentPrime = 2;
+        for (int i = 1; i < input; i++) {
+            currentPrime = prime.findNextPrime(currentPrime);
+        }
+        return currentPrime;
     }
 }

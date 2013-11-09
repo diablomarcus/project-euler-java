@@ -37,4 +37,14 @@ public class NumberCheckerTest {
         Assert.assertEquals(false, testObject.isPalindrome(9012342109L));
 
     }
+
+    @Test
+    public void testIsPrime_HandlesVarietyOfCases() {
+        Assert.assertEquals(true, testObject.isPrime(2L));
+        Assert.assertEquals(false, testObject.isPrime(15L));
+        Assert.assertEquals(false, testObject.isPrime(18L));
+        Assert.assertEquals(true, testObject.isPrime(17L));
+        Assert.assertEquals(false, testObject.isPrime(98L));
+
+    }
 }

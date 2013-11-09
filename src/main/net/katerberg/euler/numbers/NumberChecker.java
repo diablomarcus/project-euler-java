@@ -19,4 +19,14 @@ public class NumberChecker {
         return true;
     }
 
+    public boolean isPrime(long input) {
+        Long maxPossibleFactor = (long) Math.ceil(Math.sqrt(input));
+        for (int i = 2; i <= maxPossibleFactor; i++) {
+            if (input % i == 0 && input != i) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
